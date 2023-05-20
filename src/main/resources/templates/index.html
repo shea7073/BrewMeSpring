@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+<h1>Welcome to BrewMe!</h1>
+<h3>The Ultimate Database in Craft Brewing</h3>
+<label for="type">Choose a user type</label>
+<select id="type" th:field="*{userType}">
+        <option th:value="admin" th:text="Administrator"></option>
+        <option th:value="brewer" th:text="Brewer"></option>
+        <option th:value="reviewer" th:text="Reviewer"></option>
+
+    </select>
+<button><a href="@{/register/} + ${userType}">Enter</a></button>
+</body>
+</html>
