@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Review - Choose your brew</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/review/SelectBeer}">
+<input type="text" name="keyword" id="keyword" th:value="${keyword}">
+<button type="submit">Submit</button>
+</form>
+
+<p th:if="${beers}">
+    <div th:each="beer : ${beers}">
+    <p th:text="${beer.name}"></p>
+</div>
+</p>
+</body>
+</html>

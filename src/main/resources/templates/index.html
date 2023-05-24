@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -8,13 +8,32 @@
 
 <h1>Welcome to BrewMe!</h1>
 <h3>The Ultimate Database in Craft Brewing</h3>
-<label for="type">Choose a user type</label>
-<select id="type" th:field="*{userType}">
-        <option th:value="admin" th:text="Administrator"></option>
-        <option th:value="brewer" th:text="Brewer"></option>
-        <option th:value="reviewer" th:text="Reviewer"></option>
 
-    </select>
-<button><a href="@{/register/} + ${userType}">Enter</a></button>
+<form action="#" th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+<div sec:authorize="hasRole('REVIEWER')">
+    <a th:href="@{/beerType}"> Add a new beer to BrewMe!</a>
+</div>
+
+<div sec:authorize="hasRole('REVIEWER')">
+    <a th:href="@{/review/SelectBeer}"> Add a beer review to BrewMe!</a>
+</div>
+
+
+<div>
+    <p>These routes are for security testing purposes and are temporary</p>
+    <div sec:authorize="hasRole('BREWER')">
+        <a th:href="@{/brewer}">Brewer Only Path</a>
+    </div>
+
+    <div sec:authorize="hasRole('ADMIN')">
+        <a th:href="@{/admin}">Admin Only Path</a>
+
+    </div>
+</div>
+
+
 </body>
 </html>

@@ -1,7 +1,9 @@
 package com.CS622.BrewMe.entity;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.userdetails.User;
 
+import java.security.Principal;
 import java.time.LocalDate;
 
 @Entity
@@ -13,9 +15,22 @@ public abstract class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    public User author;
+    @Column
+    public String author;
 
     @Column
     public LocalDate postTime;
+
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setPostTime(LocalDate postTime) {
+        this.postTime = postTime;
+    }
 }

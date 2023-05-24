@@ -24,4 +24,37 @@ public class Review extends Post {
     @Column
     String image;
 
+
+    @OneToOne
+    public Beer getBeer() {
+        return beer;
+    }
+
+    public void setBeer(Beer beer) {
+        this.beer = beer;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

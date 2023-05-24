@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <style>
+        .fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome to BrewMe!</h1>
+<h2>Please login</h2>
+
+<form action="#" th:action="@{/authenticateUser}" method="post">
+
+    <div class="fail" th:if="${param.error}">
+        <i>Sorry, invalid username or password!</i>
+    </div>
+
+    <div th:if="${param.logout}">
+        <p>You have been logged out</p>
+    </div>
+
+    <label for="username">Username</label>
+    <input id="username" type="text" name="username">
+
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password">
+
+    <button type="submit" value="Login">Login</button>
+
+</form>
+
+
+</body>
+</html>
