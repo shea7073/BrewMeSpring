@@ -51,6 +51,13 @@
     </tr>
 </table>
 
+<div class="pagination-container">
+    <div th:if="${hasPrev}"><a th:href="@{'?page=' + ${current - 1}}" th:text="Previous"></a></div>
+    <div><h4 th:text="${current}"></h4></div>
+    <div th:if="${hasNext}"><a th:href="@{'?page=' + ${current + 1}}" th:text="Next"></a></div>
+</div>
+
+
 
 </body>
 </html>

@@ -87,7 +87,9 @@ public class ReviewController {
         // is provided, also return search results
         if (keyword != null && keyword != ""){
             List<Ale> aleList = aleRepository.findBeers(keyword);
-            model.addAttribute("beers", aleList);
+            // GENERIC USAGE
+            PaginatedList<Ale> paginatedBeers = new PaginatedList<>(aleList, 1);
+            model.addAttribute("beers", paginatedBeers.getCurrentPageItems());
         }
         model.addAttribute("keyword", keyword);
         return "reviewSelectBeer";

@@ -17,6 +17,8 @@ public class UtilityService {
     @Autowired
     private ReviewRepository reviewRepository;
     public <T extends Post> long calculateAge(T t){
+        // Precondition: Post passed in as argument
+        // Post-condition: Post age calculated and returned
         LocalDate posted = t.getPostTime();
         LocalDate today = LocalDate.now();
         return ChronoUnit.DAYS.between(posted, today);

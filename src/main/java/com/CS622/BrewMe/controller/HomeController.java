@@ -1,10 +1,12 @@
 package com.CS622.BrewMe.controller;
 
+import com.CS622.BrewMe.entity.PaginatedList;
 import com.CS622.BrewMe.entity.Review;
 import com.CS622.BrewMe.repository.AleRepository;
 import com.CS622.BrewMe.repository.ReviewRepository;
 import com.CS622.BrewMe.service.UtilityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,11 +28,25 @@ public class HomeController {
     private UtilityService utilityService;
 
     @GetMapping("/")
-    public String home(Model model){
+    public String home(Model model, @Param("page") Integer page){
         // Precondition: Visit to site "/" route
         // Post condition: Return index template with reviews
         List<Review> reviews = reviewRepository.getReviews();
-        model.addAttribute("reviews", reviews);
+        // GENERIC USAGE
+        PaginatedList<Review> paginatedReviews = new PaginatedList<>(reviews, 1);
+        if (page != null) {
+            paginatedReviews.setCurrentPageNum(page);
+        }
+        else {
+            paginatedReviews.setCurrentPageNum(1);
+        }
+        int current = paginatedReviews.getCurrentPageNum();
+        boolean hasNext = paginatedReviews.hasNext();
+        boolean hasPrev = paginatedReviews.hasPrevious();
+        model.addAttribute("reviews", paginatedReviews.getCurrentPageItems());
+        model.addAttribute("hasNext", hasNext);
+        model.addAttribute("hasPrev", hasPrev);
+        model.addAttribute("current", current);
         return "index";
     }
 

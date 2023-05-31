@@ -65,5 +65,22 @@ public class PaginatedList<T> {
         return items.subList(startIndex, endIndex);
     }
 
+    public boolean hasNext(){
+        if (this.currentPage < this.getTotalPages()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean hasPrevious(){
+        if (this.currentPage > 1){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 }

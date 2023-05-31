@@ -22,3 +22,14 @@
     padding: 20px;
     margin: 20px auto;
 }
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-container div a {
+    display: inline-block;
+    margin: 10px;
+}
