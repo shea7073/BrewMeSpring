@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: nav-styles}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: google1}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: google2}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: fonts}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
 </head>
 <body>
 
-<h1>Welcome to BrewMe!</h1>
-<h3>The Ultimate Database in Craft Brewing</h3>
+<div th:replace="fragments/header :: header"></div>
 
-<form action="#" th:action="@{/logout}" method="post">
-    <button type="submit">Logout</button>
-</form>
-
-<div sec:authorize="hasRole('REVIEWER')">
-    <a th:href="@{/beerType}"> Add a new beer to BrewMe!</a>
+<div class="home-header">
+    <h1>Welcome to BrewMe!</h1>
+    <h3>The Ultimate Database in Craft Brewing</h3>
 </div>
-
-<div sec:authorize="hasRole('REVIEWER')">
-    <a th:href="@{/review/SelectBeer}"> Add a beer review to BrewMe!</a>
-</div>
-
 
 <div>
     <p>These routes are for security testing purposes and are temporary</p>
@@ -33,6 +29,27 @@
 
     </div>
 </div>
+
+<center><h3>Check out our most recent reviews!</h3></center>
+
+<table th:if="${reviews}">
+    <tr th:each="review : ${reviews}">
+        <div class="post-container">
+            <h3 th:text="${review.getBeer().getName()} + ' - Brewed by: ' + ${review.getBeer().getBrewery()}"></h3>
+            <hr>
+            <h6 th:text="'Posted by ' + ${review.getAuthor()} + ' on ' + ${review.getPostTime()}"></h6>
+            <h6 th:text="'Rated ' + ${review.getRating()} + '/5'"></h6>
+            <p th:text="${review.getBody()}"></p>
+            <p class="review-age" th:text="'(Review is ' + ${@utilityService.calculateAge(review)} + ' days old)'"></p>
+            <div th:if="${#authentication.getName() == review.getAuthor()}">
+                <form th:action="@{'/review/delete/' + ${review.getId()}}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+
+            </div>
+        </div>
+    </tr>
+</table>
 
 
 </body>

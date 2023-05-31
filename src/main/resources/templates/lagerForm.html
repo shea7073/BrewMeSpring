@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Beer Details - Lager</title>
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: nav-styles}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: google1}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: google2}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: fonts}">
+  <link rel="stylesheet" th:href="@{/css/beerForm.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<h1>Tell us about your Lager</h1>
+
+<form id="beerForm" action="#" th:action="@{/lagerForm}" method="post" th:object="${lager}">
+  <label th:for="name">What's this brew called?</label>
+  <input type="text" id="name" th:field="*{name}">
+
+  <label th:for="brewery">Who brewed it?</label>
+  <input type="text" id="brewery" th:field="*{brewery}">
+
+  <label th:for="abv">Alcohol Content?</label>
+  <input type="number" id="abv" th:step=".1" th:field="*{abv}" th:default="5.0">
+
+  <label th:for="ibu">IBU? (if known)</label>
+  <input type="number" th:step="1" name="" id="ibu" th:field="*{ibu}" th:default="unknown">
+
+  <button id="submitBeer" th:value="Submit" type="submit">Submit!</button>
+</form>
+
+</body>
+</html>

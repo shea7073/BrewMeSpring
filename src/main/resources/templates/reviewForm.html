@@ -2,26 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Review - What kind of brew?</title>
+    <title>Review - How was it?</title>
     <link rel="stylesheet" href="" th:replace="~{fragments/header :: nav-styles}">
     <link rel="stylesheet" href="" th:replace="~{fragments/header :: google1}">
     <link rel="stylesheet" href="" th:replace="~{fragments/header :: google2}">
     <link rel="stylesheet" href="" th:replace="~{fragments/header :: fonts}">
-    <link rel="stylesheet" href="" th:href="@{/css/beerType.css}">
 </head>
 <body>
 
 <div th:replace="fragments/header :: header"></div>
 
-<div class="prompt-container">
-    <h1>Let's Get Started!</h1>
-    <h3>Is this beer an Ale or Lager?</h3>
-    <div class="choice-container">
-        <a class="choice" th:href="@{/beerForm/ale}">It's an Ale</a>
-        <a class="choice" th:href="@{/beerForm/lager}">It's a Lager</a>
-    </div>
+<form action="" th:action="@{'/review/form?id=' + ${id}}" method="post" th:object="${review}">
 
-</div>
+  <label th:for="body">What's did you think of this beer?</label>
+  <input type="text" id="body" th:field="*{body}">
+
+  <label th:for="rating">How would you rate it?</label>
+  <input type="number" th:step=".1" id="rating" th:max="5" th:field="*{rating}">
+
+
+  <button th:value="Submit" type="submit">Submit!</button>
+</form>
+
 
 </body>
 </html>

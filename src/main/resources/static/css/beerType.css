@@ -1,0 +1,22 @@
+.prompt-container {
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.choice {
+    padding: 15px;
+    background: #73593f;
+    color: #fdf7f2;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.choice:hover {
+    text-decoration: underline;
+    color: antiquewhite;
+}
+
+.choice-container {
+    margin-top: 20px;
+}

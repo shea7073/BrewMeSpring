@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}" th:fragment="nav-styles">
+  <link rel="preconnect" href="https://fonts.googleapis.com" th:fragment="google1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin th:fragment="google2">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet" th:fragment="fonts">
+</head>
+<body>
+<div th:fragment="header" class="header">
+
+  <a th:href="@{/}"><img th:src="@{/logo/svg/logo-no-background.svg}" alt="" width="150px"></a>
+
+  <div class="nav-link-container">
+    <div sec:authorize="hasRole('REVIEWER')">
+      <a th:href="@{/beerType}"> Submit a Beer</a>
+    </div>
+
+    <div sec:authorize="hasRole('REVIEWER')">
+      <a th:href="@{/review/SelectBeer}">Review a Beer</a>
+    </div>
+
+    <form action="#" th:action="@{/logout}" method="post">
+      <button id="logout" type="submit">Logout</button>
+    </form>
+  </div>
+
+
+</div>
+</body>
+</html>

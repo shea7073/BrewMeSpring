@@ -13,7 +13,7 @@ public abstract class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    public long id;
 
     @Column
     public String author;
@@ -32,5 +32,13 @@ public abstract class Post {
 
     public void setPostTime(LocalDate postTime) {
         this.postTime = postTime;
+    }
+
+    public LocalDate getPostTime() {
+        return this.postTime;
+    }
+
+    public long getId(){
+        return this.id;
     }
 }

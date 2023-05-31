@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public class Review extends Post {
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     Beer beer;
 
     @Column

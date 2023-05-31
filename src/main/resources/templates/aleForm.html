@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Beer Details - Ale</title>
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: nav-styles}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: google1}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: google2}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: fonts}">
+    <link rel="stylesheet" th:href="@{/css/beerForm.css}">
 </head>
 <body>
+
+<div th:replace="fragments/header :: header"></div>
+
 <h1>Tell us about your Ale</h1>
 
-<form action="#" th:action="@{/aleForm}" method="post" th:object="${ale}">
+<form id="beerForm" action="#" th:action="@{/aleForm}" method="post" th:object="${ale}">
     <label th:for="name">What's this brew called?</label>
     <input type="text" id="name" th:field="*{name}">
 
@@ -20,7 +28,7 @@
     <label th:for="ibu">IBU? (if known)</label>
     <input type="number" th:step="1" name="" id="ibu" th:field="*{ibu}" th:default="unknown">
 
-    <button th:value="Submit" type="submit">Submit!</button>
+    <button id="submitBeer" th:value="Submit" type="submit">Submit!</button>
 </form>
 
 </body>

@@ -2,6 +2,9 @@
 //
 //
 //import jakarta.persistence.*;
+//import org.checkerframework.checker.units.qual.C;
+//
+//import java.time.LocalDate;
 //
 //@Entity
 //@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -18,6 +21,9 @@
 //    @Column(name="username")
 //    String username;
 //
+//    @Column
+//    LocalDate postTime;
+//
 //
 //    public String getName() {
 //        return name;
@@ -33,5 +39,13 @@
 //
 //    public void setUsername(String username) {
 //        this.username = username;
+//    }
+//
+//    public LocalDate getPostTime() {
+//        return this.postTime;
+//    }
+//
+//    public void setPostTime(LocalDate postTime) {
+//        this.postTime = postTime;
 //    }
 //}

@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+}
+
+#beerForm {
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+    align-items: center;
+    margin: auto;
+}
+
+#beerForm * {
+    margin: 10px;
+}
+
+input {
+    font-size: 20px;
+}
+
+#submitBeer {
+    font-size: 20px;
+    padding: 15px;
+    background: #73593f;
+    color: #fdf7f2;
+    border-radius: 5px;
+    border: none;
+}

@@ -1,20 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Review - Choose your brew</title>
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: nav-styles}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: google1}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: google2}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: fonts}">
+    <link rel="stylesheet" th:href="@{/css/reviewSelectBeer.css}">
 </head>
 <body>
 
-<form action="#" th:action="@{/review/SelectBeer}">
-<input type="text" name="keyword" id="keyword" th:value="${keyword}">
-<button type="submit">Submit</button>
-</form>
+<div th:replace="fragments/header :: header"></div>
 
-<p th:if="${beers}">
-    <div th:each="beer : ${beers}">
-    <p th:text="${beer.name}"></p>
+<div id="page-header">
+    <h1>Lets get your review started!</h1>
+    <h4>What beer would you like to review?</h4>
 </div>
-</p>
+
+<div class="form-container">
+    <form action="#" th:action="@{/review/SelectBeer}">
+        <input type="text" name="keyword" id="keyword" th:value="${keyword}" width="200px">
+        <button id="search" type="submit">Submit</button>
+    </form>
+</div>
+
+<h6>Cant find the beer? <a sec:authorize="hasRole('REVIEWER')" th:href="@{/beerType}">Submit One!</a></h6>
+
+
+<table th:if="${beers}" class="search-matches">
+    <caption th:text="'Matches for keyword:' + ${keyword}"></caption>
+    <tr>
+        <th>Beer</th>
+        <th>Brewery</th>
+        <th>Average Rating</th>
+        <th>Pick!</th>
+    </tr>
+    <tr class="data-row" th:each="beer : ${beers}">
+        <td th:text="${beer.name}"></td>
+        <td th:text="${beer.brewery}"></td>
+        <td th:if="${beer.getAvgRating()}" th:text="${beer.getAvgRating()}"></td>
+        <td><a th:href="@{'/review/form/' + ${beer.id}}">Choose</a></td>
+    </tr>
+</table>
+
+
 </body>
 </html>
