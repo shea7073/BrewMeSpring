@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
 
     @GetMapping("/showLoginPage")
+    // Precondition: Visit to site "/showLoginPage" route
+    // Post condition: Return login template
     public String showLoginPage() {
         return "login";
     }

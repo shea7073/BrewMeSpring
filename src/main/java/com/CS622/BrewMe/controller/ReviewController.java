@@ -6,7 +6,6 @@ import com.CS622.BrewMe.repository.LagerRepository;
 import com.CS622.BrewMe.repository.ReviewRepository;
 
 import com.CS622.BrewMe.service.UtilityService;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -33,11 +32,17 @@ public class ReviewController {
 
 
     @GetMapping("/beerType")
+    // Precondition: Visit to site "/beerType" route
+    // Post condition: Return beerType template so user can choose
+    // whether to submit an ale or lager.
     public String beerType() {
         return "beerType";
     }
 
     @GetMapping("/beerForm/{type}")
+    // Precondition: User selects Ale or Lager on "/beerType" route
+    // Post condition: If ale chosen, return form for ale creation. If lager
+    // chosen return the lager form.
     public String beerForm(Model model, @PathVariable("type") String type) {
         if (Objects.equals(type, "ale")){
             model.addAttribute("ale", new Ale());
@@ -49,13 +54,16 @@ public class ReviewController {
             System.out.println("lager creeated");
             return "lagerForm";
         }
-
+        // catch all if route doesn't match
         return "index";
     }
 
     @PostMapping("/aleForm")
     public String submitAle(@ModelAttribute("ale") Ale ale) {
-        // this needs to check if there is a beer with that name in the system already
+        // Precondition: User has posted an ale form
+        // Post condition: Ale object gets initial values and is saved to mysql
+
+        // FUTURE SEAN: this needs to check if there is a beer with that name in the system already
         ale.setNumReviews(0);
         ale.setAvgRating(0);
         aleRepository.save(ale);
@@ -64,6 +72,8 @@ public class ReviewController {
 
     @PostMapping("/lagerForm")
     public String submitLager(@ModelAttribute("lager") Lager lager) {
+        // Precondition: User has posted a lager form
+        // Post condition: Lager object gets initial values and is saved to mysql
         lager.setAvgRating(0);
         lager.setNumReviews(0);
         lagerRepository.save(lager);
@@ -72,6 +82,9 @@ public class ReviewController {
 
     @GetMapping("/review/SelectBeer")
     public String reviewSelect(Model model, @Param("keyword") String keyword){
+        // Precondition: User navigates to "/review/SelectBeer" route
+        // Post condition: Review select beer template is displayed. If a keyword
+        // is provided, also return search results
         if (keyword != null && keyword != ""){
             List<Ale> aleList = aleRepository.findBeers(keyword);
             model.addAttribute("beers", aleList);
@@ -82,6 +95,8 @@ public class ReviewController {
 
     @GetMapping("/review/form/{id}")
     public String reviewForm(Model model, @PathVariable("id") long id) {
+        // Precondition: User navigates to "/review/form/{id}" route to submit a review
+        // Post condition: New review object is generated and form is presented to user for completion
         model.addAttribute("review", new Review());
         model.addAttribute("id", id);
         System.out.println(aleRepository.getReferenceById(id));
@@ -90,6 +105,8 @@ public class ReviewController {
 
     @PostMapping("/review/form")
     public String submitReview(@ModelAttribute("review") Review review, Principal principal, @RequestParam("id") long id) {
+        // Precondition: User posts review form
+        // Post condition: Review is finished and saved. Beer has its number of reviews and rating updated.
         review.setPostTime(LocalDate.now());
         review.setAuthor(principal.getName());
         review.setBeer(aleRepository.getReferenceById(id));
@@ -114,6 +131,8 @@ public class ReviewController {
 
     @PostMapping("review/delete/{id}")
     public String deleteReview(@PathVariable("id") long id){
+        // Precondition: User has selected to delete their post
+        // Postcondition: Review is deleted, user redirected home
         reviewRepository.deleteById(id);
         return "redirect:/";
     }

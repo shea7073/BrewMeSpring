@@ -27,6 +27,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model){
+        // Precondition: Visit to site "/" route
+        // Post condition: Return index template with reviews
         List<Review> reviews = reviewRepository.getReviews();
         model.addAttribute("reviews", reviews);
         return "index";
