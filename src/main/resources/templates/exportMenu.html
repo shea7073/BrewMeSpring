@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BrewMe - Export</title>
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: nav-styles}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: google1}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: google2}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: fonts}">
+    <link rel="stylesheet" th:href="@{/css/export.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<a th:href="@{/exportData}">Export Beer Data</a>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BrewMe - Admin Panel</title>
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: nav-styles}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: google1}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: google2}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: fonts}">
+  <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<h1>Admin Panel</h1>
+
+<h2>Controls</h2>
+
+<a th:href="@{/uploadData}">Upload Beer Data to Database</a>
+<a th:href="@{/exportData}">Export Beer Data to File</a>
+
+
+</body>
+</html>

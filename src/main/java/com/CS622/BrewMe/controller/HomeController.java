@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
@@ -19,13 +20,7 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    private AleRepository aleRepository;
-
-    @Autowired
     private ReviewRepository reviewRepository;
-
-    @Autowired
-    private UtilityService utilityService;
 
     @GetMapping("/")
     public String home(Model model, @Param("page") Integer page){

@@ -32,7 +32,7 @@
 
 <center><h3>Check out our most recent reviews!</h3></center>
 
-<table th:if="${reviews}">
+<table th:if="${reviews.size() > 0}">
     <tr th:each="review : ${reviews}">
         <div class="post-container">
             <h3 th:text="${review.getBeer().getName()} + ' - Brewed by: ' + ${review.getBeer().getBrewery()}"></h3>

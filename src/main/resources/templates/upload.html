@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BrewMe - Upload</title>
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: nav-styles}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: google1}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: google2}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: fonts}">
+  <link rel="stylesheet" th:href="@{/css/upload.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<h1 th:text="Hello"></h1>
+<h3>Pick a file to upload</h3>
+
+<form action="" th:action="@{/uploadData}" method="post"  enctype="multipart/form-data" >
+  <input type="file" name="file">
+  <button type="submit">submit</button>
+</form>
+
+</body>
+</html>

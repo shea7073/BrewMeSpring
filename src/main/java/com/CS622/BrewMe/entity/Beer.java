@@ -6,12 +6,13 @@ import jakarta.persistence.*;
 import org.checkerframework.checker.units.qual.C;
 import org.springframework.cglib.core.Local;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
-public class Beer {
+public class Beer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

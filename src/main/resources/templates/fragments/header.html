@@ -14,6 +14,11 @@
   <a th:href="@{/}"><img th:src="@{/logo/svg/logo-no-background.svg}" alt="" width="150px"></a>
 
   <div class="nav-link-container">
+
+    <div sec:authorize="hasRole('ADMIN')">
+      <a th:href="@{/adminPanel}">Admin</a>
+    </div>
+
     <div sec:authorize="hasRole('REVIEWER')">
       <a th:href="@{/beerType}"> Submit a Beer</a>
     </div>

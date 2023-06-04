@@ -19,6 +19,8 @@ public interface AleRepository extends BeerRepository<Ale> {
     @Query(value = "SELECT * FROM beer b WHERE (UPPER(b.name) LIKE CONCAT('%', :keyword, '%')) OR (UPPER(b.brewery) LIKE CONCAT('%', :keyword, '%'))", nativeQuery = true)
     List<Ale> findBeers(String keyword);
 
+    @Query(value = "SELECT * FROM beer", nativeQuery = true)
+    List<Beer> allBeers();
 
 
 }
