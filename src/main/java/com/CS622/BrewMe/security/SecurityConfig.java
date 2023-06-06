@@ -34,6 +34,10 @@ public class SecurityConfig {
                         .requestMatchers("/review/form/*").hasRole("REVIEWER")
                         .requestMatchers(HttpMethod.POST, "/review/form").hasRole("REVIEWER")
                         .requestMatchers(HttpMethod.POST, "review/delete/*").hasRole("REVIEWER")
+                        .requestMatchers("/uploadData").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/uploadData").hasRole("ADMIN")
+                        .requestMatchers("/exportMenu").hasRole("ADMIN")
+                        .requestMatchers("/exportData").hasRole("ADMIN")
                         .anyRequest().authenticated()
         )
                 .formLogin(form ->
