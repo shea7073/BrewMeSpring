@@ -41,7 +41,7 @@ public class FileIOController {
         FileInputStream fstream = null;
 
         try (ObjectInputStream infile = new ObjectInputStream(new
-                FileInputStream(newFile));)
+                FileInputStream(newFile)))
         {
             while (true)
             {

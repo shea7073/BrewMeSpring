@@ -16,6 +16,7 @@ import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 public class ReviewController {
@@ -27,8 +28,7 @@ public class ReviewController {
     @Autowired
     private LagerRepository lagerRepository;
 
-    @Autowired
-    private UtilityService utilityService;
+
 
 
     @GetMapping("/beerType")
@@ -132,10 +132,13 @@ public class ReviewController {
     }
 
     @PostMapping("review/delete/{id}")
-    public String deleteReview(@PathVariable("id") long id){
+    public String deleteReview(@PathVariable("id") long id, Principal principal){
         // Precondition: User has selected to delete their post
         // Postcondition: Review is deleted, user redirected home
-        reviewRepository.deleteById(id);
+        Review review = reviewRepository.getReview(id);
+        if (Objects.equals(review.getAuthor(), principal.getName())) {
+            reviewRepository.deleteById(id);
+        }
         return "redirect:/";
     }
 

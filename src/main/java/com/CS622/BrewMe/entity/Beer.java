@@ -76,6 +76,10 @@ public class Beer implements Serializable {
         return this.id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public void setAvgRating(float avgRating) {
         this.avgRating = avgRating;
     }
@@ -99,5 +103,8 @@ public class Beer implements Serializable {
     public void setPostTime(LocalDate postTime) {
         this.postTime = postTime;
     }
+
+
+
 
 }

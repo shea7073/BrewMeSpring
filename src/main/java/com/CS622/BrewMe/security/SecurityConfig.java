@@ -2,6 +2,7 @@ package com.CS622.BrewMe.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
@@ -25,6 +26,14 @@ public class SecurityConfig {
                         .requestMatchers("/").hasRole("REVIEWER")
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .requestMatchers("/brewer").hasRole("BREWER")
+                        .requestMatchers("/beerType").hasRole("REVIEWER")
+                        .requestMatchers("/beerForm/*").hasRole("REVIEWER")
+                        .requestMatchers(HttpMethod.POST, "/aleForm").hasRole("REVIEWER")
+                        .requestMatchers(HttpMethod.POST, "/lagerForm").hasRole("REVIEWER")
+                        .requestMatchers("/review/SelectBeer").hasRole("REVIEWER")
+                        .requestMatchers("/review/form/*").hasRole("REVIEWER")
+                        .requestMatchers(HttpMethod.POST, "/review/form").hasRole("REVIEWER")
+                        .requestMatchers(HttpMethod.POST, "review/delete/*").hasRole("REVIEWER")
                         .anyRequest().authenticated()
         )
                 .formLogin(form ->
