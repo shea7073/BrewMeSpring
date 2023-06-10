@@ -101,7 +101,7 @@ class ReviewControllerTest {
     @Test
     @WithMockUser(roles = "REVIEWER")
     void shouldPostAleForm() throws Exception {
-        this.mockMvc.perform(MockMvcRequestBuilders.post("/lagerForm")
+        this.mockMvc.perform(MockMvcRequestBuilders.post("/aleForm")
                         .param("name", "Left of the dial")
                         .param("brewery", "Notch")
                         .param("abv", String.valueOf(4.6))
@@ -187,7 +187,8 @@ class ReviewControllerTest {
     @Test
     @WithMockUser(roles = "REVIEWER")
     void shouldDeleteAndRedirect() throws Exception {
-        long id = 15;
+        long id = 25;
+        when(reviewRepository.getReview(id)).thenReturn(review1);
         this.mockMvc.perform(MockMvcRequestBuilders.post("/review/delete/" + id)
                         .with(csrf()))
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection())

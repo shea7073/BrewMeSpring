@@ -1,0 +1,125 @@
+beer/name: The Tap Robust Porter
+beer/beerId: 23623
+beer/brewerId: 3940
+beer/ABV: 4.5
+beer/style: Porter
+review/appearance: 4/5
+review/aroma: 6/10
+review/palate: 2/5
+review/taste: 6/10
+review/overall: 11/20
+review/time: 1060646400
+review/profileName: Nuffield
+review/text: I wasn't so impressed by this.  Milky and dry in aroma, with some manure/barnyard notes.  Similar flavor profile.  Quite thin, perhaps as expected from the style but in a way that is not comfortable.  (gravity pour at GBBF 2003)
+
+beer/name: The Tap Robust Porter
+beer/beerId: 23623
+beer/brewerId: 3940
+beer/ABV: 4.5
+beer/style: Porter
+review/appearance: 4/5
+review/aroma: 6/10
+review/palate: 4/5
+review/taste: 8/10
+review/overall: 14/20
+review/time: 1060646400
+review/profileName: bierkoning
+review/text: Cask, GBBF. Medium bodied, strong coffee and caramel flavor. Tastes a bit like baileys cream. Sweet but lots to compensate. Long roasted malt finish. I like it!
+
+beer/name: The Tap Robust Porter
+beer/beerId: 23623
+beer/brewerId: 3940
+beer/ABV: 4.5
+beer/style: Porter
+review/appearance: 3/5
+review/aroma: 9/10
+review/palate: 4/5
+review/taste: 7/10
+review/overall: 17/20
+review/time: 1051660800
+review/profileName: omnivore
+review/text: NERAX, Somerville, MA: Cask Sample. A musky sweet aroma. Dark color with a thin head.  It was very delicate.  Layered flavors were subtle and a little hard to pick out (I should have had more than 1/4 pint sample).  Mildly hoppy, with bitter leave.  Well done, especially for such a new brewery.
+
+beer/name: The Tap Biesl Lager
+beer/beerId: 153283
+beer/brewerId: 3940
+beer/ABV: 5.2
+beer/style: Vienna
+review/appearance: 3/5
+review/aroma: 3/10
+review/palate: 2/5
+review/taste: 4/10
+review/overall: 7/20
+review/time: 1326240000
+review/profileName: chriso
+review/text: Cask (gravity dispense) at Great British Beer Festival, day 4 on 5 August 2011. Dark brown. My god, I can smell the butterscotch as soon as I pick up the glass. I know some people are supposed to be more sensitive to diacetyl than others and that, for some beers, a little is regarded as "appropriate". But this was a butterscotch bomb - fullstop.  Ive had some good beers from these guys but I found this one borderline undrinkable. Surely there must be something wrong here - cant imagine it was supposed to be like this.
+
+beer/name: The Tap Biesl Lager
+beer/beerId: 153283
+beer/brewerId: 3940
+beer/ABV: 5.2
+beer/style: Vienna
+review/appearance: 3/5
+review/aroma: 5/10
+review/palate: 2/5
+review/taste: 5/10
+review/overall: 10/20
+review/time: 1319673600
+review/profileName: anders37
+review/text: Cask gravity @ GBBF 2011. Pours a slightly hazy copper color with a small off-white head. Has a fruity malty grainy caramel and buttery aroma. Fruity malty grainy caramel flavor with hints of butter. Has a fruity malty grainy caramel finish.
+
+beer/name: The Tap Biesl Lager
+beer/beerId: 153283
+beer/brewerId: 3940
+beer/ABV: 5.2
+beer/style: Vienna
+review/appearance: 3/5
+review/aroma: 5/10
+review/palate: 3/5
+review/taste: 5/10
+review/overall: 8/20
+review/time: 1318118400
+review/profileName: madmitch76
+review/text: 5th August 2011GBBF. Cask. Cloudy brown beer, no head. Smooth low carbonation palate, semi dry. Caramel malt with mild orange hop. Semi dry finish with a malty aftertaste. Actually enquired if this was mislabelled but it wasnt - the cask label confirmed it. An odd beer - possibly suffered some in transit.
+
+beer/name: The Tap Biesl Lager
+beer/beerId: 153283
+beer/brewerId: 3940
+beer/ABV: 5.2
+beer/style: Vienna
+review/appearance: 2/5
+review/aroma: 4/10
+review/palate: 3/5
+review/taste: 6/10
+review/overall: 10/20
+review/time: 1315267200
+review/profileName: fonefan
+review/text: Cask (gravity) @ GBBF 2011, Great British Beer Festival, Earls Court Exhibition Centre, London, England.Unclear matt medium grey amber colour with a small, fizzy, fair lacing, mostly diminishing, off-white head. Aroma is moderate malty, caramel, toffee, butter. Flavor is moderate to light light heavy sweet and bitter with a long duration, toffee, tobacco. Body is medium, texture is oily, carbonation is flat. [20110805]
+
+beer/name: The Tap Biesl Lager
+beer/beerId: 153283
+beer/brewerId: 3940
+beer/ABV: 5.2
+beer/style: Vienna
+review/appearance: 3/5
+review/aroma: 5/10
+review/palate: 3/5
+review/taste: 6/10
+review/overall: 11/20
+review/time: 1315267200
+review/profileName: oh6gdx
+review/text: Cask@GBBF2011. Hazy ambery brown colour, small head. Aroma is fruits, raisins, butterscotch and some mild notes of plum as well. Flavour is fruits, wood, diacetyl and quite toasted notes as well.
+
+beer/name: The Tap Biesl Lager
+beer/beerId: 153283
+beer/brewerId: 3940
+beer/ABV: 5.2
+beer/style: Vienna
+review/appearance: 3/5
+review/aroma: 5/10
+review/palate: 2/5
+review/taste: 5/10
+review/overall: 9/20
+review/time: 1315094400
+review/profileName: FatPhil
+review/text: GraviCask (GBBF2011, Friday)	Woh, what a butterscotch explosion. Taste has simple malter barley and a huge pile of butterscotch. Dont go here unless youre diacetyl-immune.
