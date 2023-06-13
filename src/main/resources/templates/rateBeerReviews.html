@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: nav-styles}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: google1}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: google2}">
+  <link rel="stylesheet" href="" th:replace="~{fragments/header :: fonts}">
+  <link rel="stylesheet" th:href="@{/css/ratebeer.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<table>
+    <caption>
+
+        <h1>Most Popular Beers</h1>
+        <h4>According to RateBeer.com</h4>
+    </caption>
+    <tr>
+        <th>Beer Name</th>
+        <th>Style</th>
+        <th>ABV</th>
+        <th>Rating</th>
+    </tr>
+
+    <tr th:each="beer : ${topBeers}">
+        <td th:text="${beer[0].getName()}"></td>
+        <td th:text="${beer[0].getStyle()}"></td>
+        <td th:text="${beer[0].getAbv() == 0} ? 'TBD' : ${beer[0].getAbv()} + '%'"></td>
+        <td th:text="${beer[1]} + '/20'" class="rating"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

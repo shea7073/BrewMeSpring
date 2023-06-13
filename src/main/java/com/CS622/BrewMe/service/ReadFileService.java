@@ -20,19 +20,24 @@ public class ReadFileService {
         FileInputStream inputStream = null;
         Scanner scanner;
         try {
-            //inputStream = new FileInputStream("./src/main/java/com/CS622/BrewMe/rateBeer/test.txt");
+            // Create stream for file
             inputStream = new FileInputStream("/Users/seanshea/Downloads/ratebeer.txt");
         } catch (Exception e) {
             System.out.println(e);
         }
+        // Create scanner with stream
         scanner = new Scanner(inputStream, "UTF-8");
+        // Create a review object
         RateBeerReview rateBeerReview = new RateBeerReview();
+        // While file has more lines
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
+            // If line is empty save review and reset review variable
             if (line.isEmpty()) {
                 System.out.println(rateBeerReview.getName());
                 rateBeerReviewRepository.save(rateBeerReview);
                 rateBeerReview = new RateBeerReview();
+            // Parse the line and set values on the review object
             } else {
                 if (line.startsWith("beer/name:")) {
                     rateBeerReview.setName(line.split(": ")[1]);

@@ -1,0 +1,16 @@
+table {
+    width: 75%;
+    margin: auto;
+}
+
+.rating {
+    text-align: center;
+}
+
+td {
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #fdf7f2;
+}
