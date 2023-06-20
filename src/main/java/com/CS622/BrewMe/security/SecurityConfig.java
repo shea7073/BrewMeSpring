@@ -38,6 +38,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/uploadData").hasRole("ADMIN")
                         .requestMatchers("/exportMenu").hasRole("ADMIN")
                         .requestMatchers("/exportData").hasRole("ADMIN")
+                        .requestMatchers("/RateBeer").hasRole("REVIEWER")
+                        .requestMatchers("/RateBeer/Upload").hasRole("ADMIN")
                         .anyRequest().authenticated()
         )
                 .formLogin(form ->

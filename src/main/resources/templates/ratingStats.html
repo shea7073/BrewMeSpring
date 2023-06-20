@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: nav-styles}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: google1}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: google2}">
+    <link rel="stylesheet" href="" th:replace="~{fragments/header :: fonts}">
+    <link rel="stylesheet" th:href="@{/css/ratebeer.css}">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div style="text-align: center">
+    <h1>Admin!</h1>
+    <h3>Here is the rating behavior of you current users</h3>
+</div>
+
+
+<table>
+    <tr>
+        <th>User</th>
+        <th>Number of ratings</th>
+        <th>Average Score</th>
+    </tr>
+
+    <tr th:each="line : ${data}">
+        <td th:text="${line[1]}" class="rating"></td>
+        <td th:text="${line[2]}" class="rating"></td>
+        <td th:text="${line[0]}" class="rating"></td>
+    </tr>
+
+
+</table>
+
+
+
+</body>
+</html>

@@ -3,7 +3,6 @@ package com.CS622.BrewMe.controller;
 import com.CS622.BrewMe.entity.RateBeerReview;
 import com.CS622.BrewMe.entity.RatingCalculator;
 import com.CS622.BrewMe.repository.RateBeerReviewRepository;
-import com.CS622.BrewMe.service.RateBeerReviewService;
 import com.CS622.BrewMe.service.ReadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

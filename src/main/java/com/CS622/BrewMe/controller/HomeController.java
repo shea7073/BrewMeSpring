@@ -28,7 +28,7 @@ public class HomeController {
         // Post condition: Return index template with reviews
         List<Review> reviews = reviewRepository.getReviews();
         // GENERIC USAGE
-        PaginatedList<Review> paginatedReviews = new PaginatedList<>(reviews, 1);
+        PaginatedList<Review> paginatedReviews = new PaginatedList<>(reviews, 5);
         if (page != null) {
             paginatedReviews.setCurrentPageNum(page);
         }
